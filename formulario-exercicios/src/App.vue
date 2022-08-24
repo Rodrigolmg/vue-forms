@@ -17,13 +17,14 @@
 					<textarea name="" cols="30" rows="5" v-model="user.message"></textarea>
 				</Rotulo>
 				<Rotulo nome="Características do Problema">
-					<span class="mr-4"><input type="checkbox" value="reproduzivel"> Reproduzível</span>
-					<span><input type="checkbox" value="intermitente"> Intermitente</span>
+					<span class="mr-4"><input type="checkbox" v-model="problems"
+						value="reproduzivel"> Reproduzível</span>
+					<span><input type="checkbox" v-model="problems" value="intermitente" > Intermitente</span>
 				</Rotulo>
 				<Rotulo nome="Qual produto?">
-					<span class="mr-4"><input type="radio"> Web</span>
-					<span class="mr-4"><input type="radio"> Mobile</span>
-					<span><input type="radio"> Outro</span>
+					<span class="mr-4"><input type="radio" value="web" v-model="product"> Web</span>
+					<span class="mr-4"><input type="radio" value="mobile" v-model="product"> Mobile</span>
+					<span><input type="radio" value="other" v-model="product"> Outro</span>
 				</Rotulo>
 				<Rotulo nome="Prioridade">
 					<select name="" id="">
@@ -48,13 +49,17 @@
 					<span>{{ user.age }}</span>
 				</Rotulo>
 				<Rotulo nome="Mensagem">
-					<span style="white-space:pre;">{{ user.message }}</span>
+					<span style="white-space:pre;">{{ message }}</span>
 				</Rotulo>
 				<Rotulo nome="Marque as Opções">
-					<span>???</span>
+					<span>
+						<ul>
+							<li v-for="problem in problems" :key="problem">{{ problem }}</li>
+						</ul>
+					</span>
 				</Rotulo>
 				<Rotulo nome="Qual produto?">
-					<span>???</span>
+					<span>{{ product }}</span>
 				</Rotulo>
 				<Rotulo nome="Prioridade">
 					<span>???</span>
@@ -76,6 +81,9 @@ export default {
 	components: { Rotulo, Escolha },
 	data(){
 		return {
+			message: '',
+			problems: [],
+			product: 'web',
 			user:{
 				// email: '',
 				// password: '',
