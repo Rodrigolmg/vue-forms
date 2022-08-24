@@ -48,7 +48,7 @@
 					<span>{{ user.age }}</span>
 				</Rotulo>
 				<Rotulo nome="Mensagem">
-					<span>{{ user.message }}</span>
+					<span style="white-space:pre;">{{ user.message }}</span>
 				</Rotulo>
 				<Rotulo nome="Marque as Opções">
 					<span>???</span>
