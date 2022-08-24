@@ -45,8 +45,8 @@ export default {
 	data(){
 		return {
 			fullName: {
-				name: this.uName,
-				surname: this.uSurname
+				name: '',
+				surname: ''
 			},
 			email: '',
 			password: '',
