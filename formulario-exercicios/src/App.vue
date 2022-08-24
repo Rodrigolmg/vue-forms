@@ -34,7 +34,7 @@
 					</select>
 				</Rotulo>
 				<Rotulo nome="Primeira Reclamação?">
-					<Escolha />
+					<Escolha v-model="isFirstComplaint"/>
 				</Rotulo>
 				<hr>
 				<button>Enviar</button>
@@ -67,7 +67,7 @@
 					<span>{{ priorities[priority-1].name }}</span>
 				</Rotulo>
 				<Rotulo nome="Primeira Reclamação?">
-					<span>???</span>
+					<span>{{ isFirstComplaint }}</span>
 				</Rotulo>
 			</div>
 		</div>
@@ -87,6 +87,7 @@ export default {
 			problems: [],
 			product: 'web',
 			priority: 1,
+			isFirstComplaint: false,
 			priorities: [
 				{ code: 1, name: 'Low' },
 				{ code: 2, name: 'Medium' },
