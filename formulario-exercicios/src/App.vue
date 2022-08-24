@@ -27,8 +27,10 @@
 					<span><input type="radio" value="other" v-model="product"> Outro</span>
 				</Rotulo>
 				<Rotulo nome="Prioridade">
-					<select name="" id="">
-						<option></option>
+					<select v-model="priority">
+						<option v-for="priority in priorities" 
+							:key="priority.code" :value="priority.code"
+							:selected="priority.code === 1"> {{ priority.name }}</option>
 					</select>
 				</Rotulo>
 				<Rotulo nome="Primeira Reclamação?">
@@ -62,7 +64,7 @@
 					<span>{{ product }}</span>
 				</Rotulo>
 				<Rotulo nome="Prioridade">
-					<span>???</span>
+					<span>{{ priorities[priority-1].name }}</span>
 				</Rotulo>
 				<Rotulo nome="Primeira Reclamação?">
 					<span>???</span>
@@ -84,6 +86,12 @@ export default {
 			message: '',
 			problems: [],
 			product: 'web',
+			priority: 1,
+			priorities: [
+				{ code: 1, name: 'Low' },
+				{ code: 2, name: 'Medium' },
+				{ code: 3, name: 'High' },
+			],
 			user:{
 				// email: '',
 				// password: '',
